@@ -21,11 +21,8 @@ if __name__ == '__main__':
     ui = ubuntutest.Ui_MainWindow()
     ui.setupUi(mainWindow)
 
-    ui.pushButton.clicked.connect(lambda: onClick_Button_Ping('192.168.188.4'))
+    ui.pushButton.clicked.connect(lambda: onClick_Button_Ping('www.baidu.com'))
 
     mainWindow.show()
-
-    hanshu = lambda x,y:x+y;
-    print(hanshu(1, 2))
 
     sys.exit(app.exec_())
