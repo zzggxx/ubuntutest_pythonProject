@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="text">
-     <string>4G</string>
+     <string>4G模块</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -34,6 +34,32 @@
       <y>150</y>
       <width>59</width>
       <height>15</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>50</x>
+      <y>190</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>串口</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>200</y>
+      <width>54</width>
+      <height>12</height>
      </rect>
     </property>
     <property name="text">

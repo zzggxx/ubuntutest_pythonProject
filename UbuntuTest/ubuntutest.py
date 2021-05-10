@@ -24,6 +24,13 @@ class Ui_MainWindow(object):
         self.label.setGeometry(QtCore.QRect(420, 150, 59, 15))
         self.label.setText("")
         self.label.setObjectName("label")
+        self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
+        self.pushButton_2.setGeometry(QtCore.QRect(50, 190, 75, 23))
+        self.pushButton_2.setObjectName("pushButton_2")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        self.label_2.setGeometry(QtCore.QRect(210, 200, 54, 12))
+        self.label_2.setText("")
+        self.label_2.setObjectName("label_2")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 800, 23))
@@ -39,4 +46,5 @@ class Ui_MainWindow(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton.setText(_translate("MainWindow", "4G"))
+        self.pushButton.setText(_translate("MainWindow", "4G模块"))
+        self.pushButton_2.setText(_translate("MainWindow", "串口"))
