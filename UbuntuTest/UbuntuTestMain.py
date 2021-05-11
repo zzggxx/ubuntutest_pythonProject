@@ -39,33 +39,32 @@ mTestString = 'sdfaeoifyalfhalieyrilahlfayergjdghfkjvgJHSbfkjawetgywegrfweyrt78t
 
 def onClick_Button_Serial():
     testStringLen = len(mTestString)
-    ser0, isopen0 = open_Serial(9600, '/dev/ttySC0', 10)
-    ser1, isopen1 = open_Serial(9600, '/dev/ttySC1', 10)
+    ser0, isopen0 = open_Serial(9600, '/dev/ttyS0', 10)
+    ser1, isopen1 = open_Serial(9600, '/dev/ttyS1', 10)
+    print('00000')
     if isopen0 and isopen1:
-        ser0.write(mTestString)
+        ser0.write(mTestString.encode())
         receivedata = ser1.read(testStringLen).decode()
         if receivedata in mTestString:
             ser0Write9600 = True
             ser1Read9600 = True
-            print('----------')
-        ser1.write(mTestString)
+        ser1.write(mTestString.encode())
         receivedata = ser0.read(testStringLen).decode()
-        if receivedata in mTestString:
+        if (receivedata in mTestString):
             ser1Write9600 = True
             ser0Read9600 = True
-            print('----------++++++++++')
         ser0.close()
         ser1.close()
-'''
-    ser0, isopen0 = open_Serial(115200, '/dev/ttySC0', 10)
-    ser1, isopen1 = open_Serial(115200, '/dev/ttySC1', 10)
+
+    ser0, isopen0 = open_Serial(115200, '/dev/ttyS0', 10)
+    ser1, isopen1 = open_Serial(115200, '/dev/ttyS1', 10)
     if isopen0 and isopen1:
-        ser0.write(mTestString)
+        ser0.write(mTestString.encode())
         receivedata = ser1.read(testStringLen).decode()
         if receivedata in mTestString:
             ser0Write115200 = True
             ser1Read115200 = True
-        ser1.write(mTestString)
+        ser1.write(mTestString.encode())
         receivedata = ser0.read(testStringLen).decode()
         if receivedata in mTestString:
             ser1Write115200 = True
@@ -79,8 +78,6 @@ def onClick_Button_Serial():
     if ser1Write9600 and ser1Write115200 and ser1Read9600 and ser1Read115200:
         ser1 = True
         print('the serial port is right: %s' % ser1)
-'''
-
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
