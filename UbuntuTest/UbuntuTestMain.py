@@ -41,7 +41,6 @@ def onClick_Button_Serial():
     testStringLen = len(mTestString)
     ser0, isopen0 = open_Serial(9600, '/dev/ttyS0', 10)
     ser1, isopen1 = open_Serial(9600, '/dev/ttyS1', 10)
-    print('00000')
     if isopen0 and isopen1:
         ser0.write(mTestString.encode())
         receivedata = ser1.read(testStringLen).decode()
@@ -78,6 +77,51 @@ def onClick_Button_Serial():
     if ser1Write9600 and ser1Write115200 and ser1Read9600 and ser1Read115200:
         ser1 = True
         print('the serial port is right: %s' % ser1)
+
+    ser2, isopen2 = open_Serial(9600, '/dev/ttyS2', 10)
+    ser3, isopen3 = open_Serial(9600, '/dev/ttyS3', 10)
+    if isopen2 and isopen3:
+        ser2.write(mTestString.encode())
+        receivedata = ser3.read(testStringLen).decode()
+        if receivedata in mTestString:
+            ser2Write9600 = True
+            ser3Read9600 = True
+        ser3.write(mTestString.encode())
+        receivedata = ser2.read(testStringLen).decode()
+        if (receivedata in mTestString):
+            ser3Write9600 = True
+            ser2Read9600 = True
+        ser2.close()
+        ser3.close()
+
+    ser2, isopen2 = open_Serial(115200, '/dev/ttyS2', 10)
+    ser3, isopen3 = open_Serial(115200, '/dev/ttyS3', 10)
+    if isopen2 and isopen3:
+        ser2.write(mTestString.encode())
+        receivedata = ser3.read(testStringLen).decode()
+        if receivedata in mTestString:
+            ser2Write115200 = True
+            ser3Read115200 = True
+        ser3.write(mTestString.encode())
+        receivedata = ser2.read(testStringLen).decode()
+        if receivedata in mTestString:
+            ser3Write115200 = True
+            ser2Read115200 = True
+        ser0.close()
+        ser1.close()
+
+    if ser2Write9600 and ser2Write115200 and ser2Read9600 and ser2Read115200:
+        ser2 = True
+        print('the serial port is right: %s' % ser2)
+    if ser3Write9600 and ser3Write115200 and ser3Read9600 and ser3Read115200:
+        ser3 = True
+        print('the serial port is right: %s' % ser3)
+
+    if ser1 and ser2 and ser3 and ser4:
+        result = 'success'
+    else:
+        result = 'failed'
+    ui.label.setText(result)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
