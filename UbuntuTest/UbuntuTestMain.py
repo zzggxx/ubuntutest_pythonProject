@@ -67,13 +67,13 @@ def onClick_Button_Serial():
     ser1, isopen1 = open_Serial(9600, '/dev/ttyS1', 10)
     if isopen0 and isopen1:
         ser0.write(mTestString.encode())
-        receivedata = ser1.read(testStringLen).decode()
-        if receivedata in mTestString:
+        receivedata10 = ser1.read(testStringLen).decode()
+        if receivedata10 in mTestString:
             ser0Write9600 = True
             ser1Read9600 = True
         ser1.write(mTestString.encode())
-        receivedata = ser0.read(testStringLen).decode()
-        if (receivedata in mTestString):
+        receivedata00 = ser0.read(testStringLen).decode()
+        if (receivedata00 in mTestString):
             ser1Write9600 = True
             ser0Read9600 = True
         ser0.close()
@@ -83,13 +83,13 @@ def onClick_Button_Serial():
     ser1, isopen1 = open_Serial(115200, '/dev/ttyS1', 10)
     if isopen0 and isopen1:
         ser0.write(mTestString.encode())
-        receivedata = ser1.read(testStringLen).decode()
-        if receivedata in mTestString:
+        receivedata11 = ser1.read(testStringLen).decode()
+        if receivedata11 in mTestString:
             ser0Write115200 = True
             ser1Read115200 = True
         ser1.write(mTestString.encode())
-        receivedata = ser0.read(testStringLen).decode()
-        if receivedata in mTestString:
+        receivedata01 = ser0.read(testStringLen).decode()
+        if receivedata01 in mTestString:
             ser1Write115200 = True
             ser0Read115200 = True
         ser0.close()
@@ -106,13 +106,13 @@ def onClick_Button_Serial():
     ser3, isopen3 = open_Serial(9600, '/dev/ttyS3', 10)
     if isopen2 and isopen3:
         ser2.write(mTestString.encode())
-        receivedata = ser3.read(testStringLen).decode()
-        if receivedata in mTestString:
+        receivedata30 = ser3.read(testStringLen).decode()
+        if receivedata30 in mTestString:
             ser2Write9600 = True
             ser3Read9600 = True
         ser3.write(mTestString.encode())
-        receivedata = ser2.read(testStringLen).decode()
-        if (receivedata in mTestString):
+        receivedata20 = ser2.read(testStringLen).decode()
+        if (receivedata20 in mTestString):
             ser3Write9600 = True
             ser2Read9600 = True
         ser2.close()
@@ -122,13 +122,13 @@ def onClick_Button_Serial():
     ser3, isopen3 = open_Serial(115200, '/dev/ttyS3', 10)
     if isopen2 and isopen3:
         ser2.write(mTestString.encode())
-        receivedata = ser3.read(testStringLen).decode()
-        if receivedata in mTestString:
+        receivedata31 = ser3.read(testStringLen).decode()
+        if receivedata31 in mTestString:
             ser2Write115200 = True
             ser3Read115200 = True
         ser3.write(mTestString.encode())
-        receivedata = ser2.read(testStringLen).decode()
-        if receivedata in mTestString:
+        receivedata21 = ser2.read(testStringLen).decode()
+        if receivedata21 in mTestString:
             ser3Write115200 = True
             ser2Read115200 = True
         ser2.close()
