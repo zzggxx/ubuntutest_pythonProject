@@ -58,6 +58,7 @@ mTestString = 'sdfaeoifyalfhalieyrilahlfayergjdghfkjvgJHSbfkjawetgywegrfweyrt78t
               '468e7f4s5d1f3a54w5r3eq441231231564867465135468e7f4s5d1f3a54w5r3eq4f3a54w5r3eq44s5d1f3a54w5r3eq44eyteluhdfjksdb64123123156486' \
               '7465135468e7f4s5d1f3a54w5r3eq4'
 
+
 def onClick_Button_Serial():
     testStringLen = len(mTestString)
 
@@ -78,11 +79,6 @@ def onClick_Button_Serial():
     ser3Read115200 = False
     ser3Write115200 = False
     ser2Read115200 = False
-
-    ser0 = False
-    ser1 = False
-    ser2 = False
-    ser3 = False
 
     ser0, isopen0 = open_Serial(9600, '/dev/ttyS0', 5)
     ser1, isopen1 = open_Serial(9600, '/dev/ttyS1', 5)
@@ -118,10 +114,14 @@ def onClick_Button_Serial():
 
     if ser0Write9600 and ser0Write115200 and ser0Read9600 and ser0Read115200:
         ser0 = True
-        print('the serial0 port is right: %s' % ser0)
+    else:
+        ser0 = False
+    print('the serial0 port is : %s' % ser0)
     if ser1Write9600 and ser1Write115200 and ser1Read9600 and ser1Read115200:
         ser1 = True
-        print('the serial1 port is right: %s' % ser1)
+    else:
+        ser1 = False
+    print('the serial1 port is : %s' % ser1)
 
     ser2, isopen2 = open_Serial(9600, '/dev/ttyS2', 5)
     ser3, isopen3 = open_Serial(9600, '/dev/ttyS3', 5)
@@ -157,17 +157,15 @@ def onClick_Button_Serial():
 
     if ser2Write9600 and ser2Write115200 and ser2Read9600 and ser2Read115200:
         ser2 = True
-        print('the serial2 port is right: %s' % ser2)
     else:
         ser2 = False
-        print('the serial2 port is right: %s' % ser2)
+    print('the serial2 port is : %s' % ser2)
 
     if ser3Write9600 and ser3Write115200 and ser3Read9600 and ser3Read115200:
         ser3 = True
-        print('the serial3 port is right: %s' % ser3)
     else:
         ser3 = False
-        print('the serial3 port is right: %s' % ser3)
+    print('the serial3 port is : %s' % ser3)
 
     if ser0 and ser1 and ser2 and ser3:
         result = 'success'
