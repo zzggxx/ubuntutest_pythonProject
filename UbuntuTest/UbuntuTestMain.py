@@ -158,8 +158,15 @@ def onClick_Button_Serial():
     if ser2Write9600 and ser2Write115200 and ser2Read9600 and ser2Read115200:
         ser2 = True
         print('the serial2 port is right: %s' % ser2)
+    else:
+        ser2 = False
+        print('the serial2 port is right: %s' % ser2)
+
     if ser3Write9600 and ser3Write115200 and ser3Read9600 and ser3Read115200:
         ser3 = True
+        print('the serial3 port is right: %s' % ser3)
+    else:
+        ser3 = False
         print('the serial3 port is right: %s' % ser3)
 
     if ser0 and ser1 and ser2 and ser3:
