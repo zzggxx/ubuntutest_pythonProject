@@ -34,6 +34,17 @@ class HeroPlane(BasePlane):
         # 注意这里是super()有括号,不用传self
         super().__init__(screen, imageName, 230, 500)
 
+        # 爆炸效果用的如下属性
+        self.bomb_list = []  # 用来存储爆炸时需要的图片
+        self.__crate_images()  # 调用这个方法向bomb_list中添加图片
+        self.image_num = 0  # 用来记录while True的次数,当次数达到一定值时才显示一张爆炸的图,然后清空,,当这个次数再次达到时,再显示下一个爆炸效果的图片
+
+    def __crate_images(self):
+        self.bomb_list.append(pygame.image.load("./feiji/hero_blowup_n1.png"))
+        self.bomb_list.append(pygame.image.load("./feiji/hero_blowup_n2.png"))
+        self.bomb_list.append(pygame.image.load("./feiji/hero_blowup_n3.png"))
+        self.bomb_list.append(pygame.image.load("./feiji/hero_blowup_n4.png"))
+
     def moveLeft(self):
         self.x -= 10
 
@@ -167,9 +178,14 @@ def main():
             # print('--x:%s  y:%s' % (bullet.x, bullet.y))
             if heroPlane.x <= bullet.x <= heroPlane.x + 50 and bullet.y >= heroPlane.y:
                 print('boom........................')
-                # time.sleep(30)
-                exit()
-
+                while True:
+                    print(heroPlane.image_num)
+                    screen.blit(heroPlane.bomb_list[heroPlane.image_num], (heroPlane.x, heroPlane.y))
+                    pygame.display.update()
+                    time.sleep(0.5)
+                    heroPlane.image_num += 1
+                    if heroPlane.image_num == 4:
+                        exit()  # 调用exit让游戏退出
         # 刷新
         pygame.display.update()
         time.sleep(0.02)
