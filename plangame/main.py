@@ -91,9 +91,9 @@ class Bullet(BaseBullet):
 
     def judge(self):
         if self.y < 0:
-            return True;
+            return True
         else:
-            return False;
+            return False
 
 
 class EnemyBullet(BaseBullet):
@@ -105,10 +105,10 @@ class EnemyBullet(BaseBullet):
         self.y += 5
 
     def judge(self):
-        if self.y > 690:
-            return True;
+        if self.y > 690 - 124:
+            return True
         else:
-            return False;
+            return False
 
 
 def main():
@@ -159,13 +159,23 @@ def main():
                 elif event.key == K_SPACE:
                     print('space')
                     heroPlane.sheBullet()
+
+        # 飞机爆炸,存在的bug
+        # for bullet in enemyPlane.bulletList:
+        if len(enemyPlane.bulletList) > 0:
+            bullet = enemyPlane.bulletList[0]
+            # print('--x:%s  y:%s' % (bullet.x, bullet.y))
+            if heroPlane.x <= bullet.x <= heroPlane.x + 50 and bullet.y >= heroPlane.y:
+                print('boom........................')
+                # time.sleep(30)
+                exit()
+
         # 刷新
         pygame.display.update()
         time.sleep(0.02)
 
 
 # -------------------------------------------------
-
 
 if __name__ == "__main__":
     main()
