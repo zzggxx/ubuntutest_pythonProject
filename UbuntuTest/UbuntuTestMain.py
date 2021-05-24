@@ -29,9 +29,11 @@ def open_Serial(baudrate, port, timeout):
     ser.baudrate = baudrate
     ser.port = port
     ser.timeout = timeout
-    ser.open()
-    return ser, ser.is_open;
-
+    try:
+        ser.open()
+    except Exception as errorMsg:
+        print("open the serial port error: %s" % errorMsg)
+    return ser, ser.is_open
 
 # ttyS0:485   ttyS1 ttyS2 ttyS3:232
 mTestString = 'sdfaeoifyalfhalieyrilahlfayergjdghfkjvgJHSbfkjawetgywegrfweyrt78teyiYQuiwhwlefhluewgrfffffdhbvxhcgfuegf' \
